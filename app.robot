@@ -1,6 +1,5 @@
 *** Settings ***
-Library    AppiumLibrary
-
+Library  AppiumLibrary
 *** Variables ***
 ${PLATFORM}  Android
 ${DEVICE}  RZCX40PVP5R
@@ -21,55 +20,39 @@ ${VIEW}  com.practo.fabric:id/text_view_all_slots
 ${SLOT}  com.practo.fabric:id/slot_info
 *** Test Cases ***
 Book Dermatology Appointment
-    Launch Practo App
-    User Login
+  Launch Practo App
+  User Login
 *** Keywords ***
 Launch Practo App
-    Open Application  http://localhost:4723/wd/hub
-    ...    platformName=${PLATFORM}
-    ...    deviceName=${DEVICE}
-    ...    platformVersion=${OS_VERSION}
-    ...    automationName=UiAutomator2
-    ...    app=${APP_FILE}
-    ...    appPackage=${PACKAGE}
-    ...    appActivity=${MAIN_ACTIVITY}
-    ...    noReset=${TRUE}
+  Open Application  http://localhost:4723/wd/hub
+  ...  platformName=${PLATFORM}
+  ...  deviceName=${DEVICE}
+  ...  platformVersion=${OS_VERSION}
+  ...  automationName=UiAutomator2
+  ...  app=${APP_FILE}
+  ...  appPackage=${PACKAGE}
+  ...  appActivity=${MAIN_ACTIVITY}
+  ...  noReset=${TRUE}
 User Login
-    Wait Until Element Is Visible  ${TROUBLE}
-    CLICK ELEMENT  ${TROUBLE}
-    Wait until element is visible  ${EMAIL_CLICK}
-    CLICK ELEMENT  ${EMAIL_CLICK}
-    Input Text    com.practo.fabric:id/email_edit_text    ${USER_EMAIL}
-    Input Text    com.practo.fabric:id/password_edit_text    ${USER_PASSWORD}
-    Wait Until Element Is Visible    ${SIGN}
-    CLICK ELEMENT  ${SIGN}
-     Wait Until Page Contains Element    ${SEARCH}
-     Click Element    ${SEARCH}
-     Wait Until Element Is Visible   ${BOOKK}
-     CLICK ELEMENT  ${BOOKK}
-     Wait Until Element Is Visible   ${DOCTOR_NAME}
-     CLICK ELEMENT  ${DOCTOR_NAME}
-      Wait Until Element Is Visible   ${DOCTOR_NAME}
-     CLICK ELEMENT  ${DOCTOR_NAME}
-     Wait Until Element Is Visible   ${VIEW}
-     CLICK ELEMENT  ${VIEW}
-     Wait Until Element Is Visible   ${SLOT}
-     CLICK ELEMENT  ${SLOT}
-#    input text  ${SEARCH}   Dermatologist
-#    Click Element    xpath=//android.widget.Button[@content-desc="Login"]
-#    Wait Until Page Contains    Home
-#Choose Dermatologist
-#    Click Element    xpath=//android.widget.TextView[contains(@text, "Dermatology")]
-#    Wait Until Element Is Visible    xpath=//android.widget.TextView[contains(@text, "Doctor Name")]
-#    Click Element    xpath=//android.widget.TextView[contains(@text, "Doctor Name")]
-#
-#Pick Available Time Slot
-#    Click Element    xpath=//android.widget.Button[contains(@text, "View All Slots")]
-#    Wait Until Element Is Visible    xpath=//android.widget.Button[contains(@text, "Select Slot")]
-#    Click Element    xpath=//android.widget.Button[contains(@text, "Select Slot")]
-#
-#Confirm Payment Details
-#    Wait Until Page Contains    Payment Summary
-#
+  Wait Until Element Is Visible  ${TROUBLE}
+  Click Element  ${TROUBLE}
+  Wait Until Element Is Visible  ${EMAIL_CLICK}
+  Click Element  ${EMAIL_CLICK}
+  Input Text  com.practo.fabric:id/email_edit_text  ${USER_EMAIL}
+  Input Text  com.practo.fabric:id/password_edit_text  ${USER_PASSWORD}
+  Wait Until Element Is Visible  ${SIGN}
+  Click Element  ${SIGN}
+  Wait Until Page Contains Element  ${SEARCH}
+  Click Element  ${SEARCH}
+  Wait Until Element Is Visible  ${BOOKK}
+  Click Element  ${BOOKK}
+  Wait Until Element Is Visible  ${DOCTOR_NAME}
+  Click Element  ${DOCTOR_NAME}
+  Wait Until Element Is Visible  ${DOCTOR_NAME}
+  Click Element  ${DOCTOR_NAME}
+  Wait Until Element Is Visible  ${VIEW}
+  Click Element  ${VIEW}
+  Wait Until Element Is Visible  ${SLOT}
+  Click Element  ${SLOT}
 Exit App
-    Close Application
+  Close Application
